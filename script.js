@@ -15,7 +15,11 @@ console.log(correctVal);
 
 document.querySelector('.check').addEventListener('click', function(){
     if(score == 0) return;
-    let guessVal = document.querySelector('.guess').value;
+    let guessVal = Number(document.querySelector('.guess').value);
+    if(guessVal <= 0 || guessVal > 20){
+        updateMessage("Invalid Input")
+        return;
+    }
     if(guessVal == correctVal) correctGuess();
     else if(guessVal > correctVal) {
         updateMessage("Too high!");
